@@ -46,11 +46,16 @@ def selectFile():
 def creatNotes():
     print('Введите порядковый номер зaметки')
     while True:
-        number = int(input())
-        if selectNumber(number) == False:
-            print('Такой номер уже есть, введите другой: ')
-            continue
-        else: break
+        num = input()
+        if num.isdigit() == False:
+            print('Введите число')
+        else:
+            number = int(num)
+            if selectNumber(number) == False:
+                print('Такой номер уже есть, введите другой: ')
+                continue
+            else:
+                break
     print('введите имя зaметки: \n')
     name = str(input())
     
@@ -77,7 +82,7 @@ def editNote():
                 # flag = False
                 break
             else:
-                print('Не корректный выбор, повторите')
+                print('Не корректный выбор, введите y или n')
                 continue
     return
 
