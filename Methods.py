@@ -16,7 +16,7 @@ def listNote():
         print(filename)
     return
 def selectNumber(number):
-    directory = 'D:D:\\Works\\IT\\IntermediateTest\\DirNotes'
+    directory = 'D:\\Works\\IT\\IntermediateTest\\DirNotes'
     arr = []
     res = True
     for filename in os.listdir(directory):
