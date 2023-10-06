@@ -7,16 +7,16 @@ def outJson(number, name, text):
     timeNote = (f'{datetime.datetime.today().strftime("%d.%m.%Y")}-'
                 f'{datetime.datetime.today().strftime("%H.%M.%S")}')
     data = {'ID': number, 'Name': name, 'Time': timeNote, "Text": text}
-    with open(f"D:\\Works\\IT\\Interim_Test\\Notes\\{fileName}.json", "w") as json_file:
+    with open(f"D:\\Works\\IT\\IntermediateTest\\DirNotes\\{fileName}.json", "w") as json_file:
         json.dump(data, json_file, ensure_ascii=False, indent=4)
     return
 def listNote():
-    directory = 'D:\\Works\\IT\\Interim_Test\\Notes'
+    directory = 'D:\\Works\\IT\\IntermediateTest\\DirNotes'
     for filename in os.listdir(directory):
         print(filename)
     return
 def selectNumber(number):
-    directory = 'D:\\Works\\IT\\Interim_Test\\Notes'
+    directory = 'D:D:\\Works\\IT\\IntermediateTest\\DirNotes'
     arr = []
     res = True
     for filename in os.listdir(directory):
@@ -35,7 +35,7 @@ def selectFile():
             print('Тaкой зaметки нет, выберите другую: ')
             continue
         else:
-            directory = 'D:\\Works\\IT\\Interim_Test\\Notes'
+            directory = 'D:\\Works\\IT\\IntermediateTest\\DirNotes'
             for filename in os.listdir(directory):
                 temp = filename.split('-')
                 if int(temp[0]) == ch:
@@ -60,7 +60,7 @@ def creatNotes():
     outJson(number, name, text)
     return
 def editNote():
-    with open(f"D:\\Works\\IT\\Interim_Test\\Notes\\{selectFile()}") as json_file:
+    with open(f"D:\\Works\\IT\\IntermediateTest\\DirNotes\\{selectFile()}") as json_file:
         jFile = json.load(json_file)
         print('Текст зaметки:')
         print(jFile['Text'])
@@ -82,5 +82,5 @@ def editNote():
     return
 
 def delNote():
-    os.remove(f"D:\\Works\\IT\\Interim_Test\\Notes\\{selectFile()}")
+    os.remove(f"D:\\Works\\IT\\IntermediateTest\\DirNotes\\{selectFile()}")
     return
